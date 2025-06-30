@@ -1,24 +1,36 @@
-# first program
-using System
-public Random Random;
+# GuessTheNumber
+using System;
+
+namespace Figure
 {
-    int num = random.randint(1, 100);
-    Console.WriteLine("Guess the number from 1 to 100. DON'T type the number in LETTERS");
-    int guess = Convert.ToInt32(Console.ReadLine());
-    int numOfGuesses = 1;
-    while (guess != num)
+    class Program
     {
-        int guess = Convert.ToInt32(Console.ReadLine());
-        numOfGuesses++;
-        if (guess > num)
+        static void Main(string[] args)
         {
-            Console.WriteLine("Too High, Try again");
-        }
-        if (guess < num)
-        {
-            Console.WriteLine("Too Low, Try again");
+            Random random = new Random();
+            int num = random.Next(1, 100);
+            int numOfGuesses = 0;
+            Console.WriteLine("Guess the number from 1 to 100. DON'T type the number in LETTERS");
+            while (true)
+            {
+                int guess = Convert.ToInt32(Console.ReadLine());
+                numOfGuesses++;
+                if (guess > num)
+                {
+                    Console.WriteLine("Too High, Try again");
+                }
+                if (guess < num)
+                {
+                    Console.WriteLine("Too Low, Try again");
+                }
+                if (guess == num)
+                {
+                    break;
+                }
+            }
+            Console.Write("You Win!1!!!!!!!1!111!1 ");
+            Console.WriteLine($"With {numOfGuesses} guesses!!!!1!!!!");
+            Environment.Exit(0);
         }
     }
-    Console.WriteLine("You Win!1!!!!!!!1!111!1");
-    Environment.Exit(0);
 }
